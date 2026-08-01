@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ibrohim Isoev | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      width: 100%;
+      background: linear-gradient(135deg, #0c1222, #111827);
+      color: white;
+      padding: 2.8rem 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid #1e293b;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.15rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    header p {
+      margin: 0.6rem 0 0;
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 1.4rem 2rem;
+      flex: 1;
+    }
+    .social-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.85rem;
+      margin-bottom: 2.8rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: 12px;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.25s ease;
+      border: 1px solid transparent;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+    .btn.github { background: #1e293b; border-color: #334155; }
+    .btn.github:hover { background: #334155; }
+    .btn.hf { background: #1e3a5f; border-color: #1e40af; }
+    .btn.hf:hover { background: #1e40af; }
+    .btn.linkedin { background: #0f2744; border-color: #1e3a8a; }
+    .btn.linkedin:hover { background: #1e3a8a; }
+    .btn.instagram { background: #1e1b2e; border-color: #4c1d95; }
+    .btn.instagram:hover { background: #4c1d95; }
+    .btn.web { background: #0f2744; border-color: #1e40af; }
+    .btn.web:hover { background: #1e40af; }
+
+    .section {
+      background: #151b28;
+      border-radius: 18px;
+      padding: 1.9rem 1.7rem;
+      margin-bottom: 1.8rem;
+      border: 1px solid #1e293b;
+    }
+    .section h2 {
+      margin: 0 0 1.3rem;
+      color: #93c5fd;
+      font-size: 1.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .skill {
+      background: #1e293b;
+      color: #93c5fd;
+      padding: 0.45rem 1rem;
+      border-radius: 50px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      border: 1px solid #334155;
+    }
+
+    .project {
+      border: 1px solid #1e293b;
+      border-radius: 14px;
+      padding: 1.25rem 1.3rem;
+      margin-bottom: 1rem;
+      background: #0f1117;
+      transition: all 0.25s ease;
+    }
+    .project:last-child { margin-bottom: 0; }
+    .project:hover {
+      border-color: #334155;
+      background: #1a2030;
+    }
+    .project h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.15rem;
+      color: #e2e8f0;
+    }
+    .project p {
+      margin: 0;
+      color: #94a3b8;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+    .project a {
+      display: inline-block;
+      margin-top: 0.7rem;
+      color: #60a5fa;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .project a:hover { color: #93c5fd; }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.85rem 1.1rem;
+      border: 1.5px solid #1e293b;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+      background: #0f1117;
+      color: #e2e8f0;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #64748b;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #3b82f6;
+    }
+    .contact-form textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+    .contact-form button {
+      background: #1e40af;
+      color: white;
+      border: none;
+      padding: 0.9rem;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .contact-form button:hover {
+      background: #1e3a8a;
+      transform: translateY(-2px);
+    }
+    .contact-form button:disabled {
+      background: #334155;
+      cursor: not-allowed;
+      transform: none;
+    }
+    #form-status {
+      margin-top: 0.8rem;
+      font-size: 0.95rem;
+      text-align: center;
+      min-height: 24px;
+    }
+
+    footer {
+      background: #0c1222;
+      border-top: 1px solid #1e293b;
+      text-align: center;
+      padding: 1.6rem 1rem;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: #93c5fd;
+    }
+
+    @media (max-width: 520px) {
+      header h1 { font-size: 1.7rem; }
+      .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+      .section { padding: 1.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Ibrohim Isoev</h1>
+    <p>Developer · AI Enthusiast · Creator</p>
+  </header>
+
+  <div class="container">
+
+    <!-- Social Links -->
+    <div class="social-buttons">
+      <a class="btn github" href="https://github.com/isoevibrohim" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a class="btn hf" href="https://huggingface.co/Isoevibrohim" target="_blank">
+        <i class="fas fa-robot"></i> Hugging Face
+      </a>
+      <a class="btn linkedin" href="https://www.linkedin.com/in/ibrohim-isoev" target="_blank">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a class="btn instagram" href="https://www.instagram.com/_7777qw?igsh=MjRubXI4NHA2bWx1" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a class="btn web" href="https://geografia-19tf.onrender.com" target="_blank">
+        <i class="fas fa-globe"></i> Вебсайти ман
+      </a>
+    </div>
+
+    <!-- Skills -->
+    <div class="section">
+      <h2><i class="fas fa-code"></i> Skills</h2>
+      <div class="skills-grid">
+        <span class="skill">HTML / CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Python</span>
+        <span class="skill">AI / Machine Learning</span>
+        <span class="skill">Web Development</span>
+        <span class="skill">Database</span>
+        <span class="skill">Hugging Face</span>
+        <span class="skill">Git & GitHub</span>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+      <h2><i class="fas fa-folder-open"></i> Projects</h2>
+
+      <div class="project">
+        <h3>somon.ai</h3>
+        <p>Ҳуши маснӯии тоҷикӣ — лоиҳаи AI барои ҷавоб додан ба саволҳо бо забони тоҷикӣ.</p>
+        <a href="https://huggingface.co/Isoevibrohim" target="_blank">
+          <i class="fas fa-external-link-alt"></i> Дидани лоиҳа (Hugging Face)
+        </a>
+      </div>
+
+      <div class="project">
+        <h3>Tajik Database</h3>
+        <p>Базаи маълумот барои забони тоҷикӣ ва маълумоти марбут ба Тоҷикистон.</p>
+        <a href="https://huggingface.co/Isoevibrohim" target="_blank">
+          <i class="fas fa-external-link-alt"></i> Дидани лоиҳа (Hugging Face)
+        </a>
+      </div>
+
+      <div class="project">
+        <h3>Geografia.tj</h3>
+        <p>Вебсайти географияи Тоҷикистон бо маълумоти муфид ва интерфейси оддӣ.</p>
+        <a href="https://geografia-19tf.onrender.com" target="_blank">
+          <i class="fas fa-external-link-alt"></i> Дидани лоиҳа
+        </a>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="section">
+      <h2><i class="fas fa-envelope"></i> Contact</h2>
+      <form class="contact-form" id="contact-form">
+        <input type="text" name="from_name" placeholder="Номи шумо" required>
+        <input type="email" name="from_email" placeholder="Email-и шумо" required>
+        <textarea name="message" placeholder="Паёми шумо..." required></textarea>
+        <button type="submit" id="submit-btn">Фиристодан</button>
+        <div id="form-status"></div>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Ibrohim Isoev. Ҳамаи ҳуқуқҳо ҳифз шудаанд.</p>
+    <p style="margin-top: 0.4rem;">
+      <a href="https://github.com/isoevibrohim" target="_blank">GitHub</a> · 
+      <a href="https://huggingface.co/Isoevibrohim" target="_blank">Hugging Face</a> · 
+      <a href="https://www.linkedin.com/in/ibrohim-isoev" target="_blank">LinkedIn</a>
+    </p>
+  </footer>
+
+  <script>
+    const PUBLIC_KEY  = "we_u6nxU9wNbzP8QM";
+    const SERVICE_ID  = "service_4cy2o9a";
+    const TEMPLATE_ID = "template_nj8ja6l";
+
+    (function() {
+      emailjs.init(PUBLIC_KEY);
+    })();
+
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Фиристода истодааст...';
+      status.textContent = '';
+      status.style.color = '#94a3b8';
+
+      emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this)
+        .then(() => {
+          status.textContent = '✅ Паём бомуваффақият фиристода шуд!';
+          status.style.color = '#4ade80';
+          form.reset();
+        })
+        .catch((error) => {
+          console.error('EmailJS Error:', error);
+          status.textContent = '❌ Хатогӣ рух дод. Лутфан дубора кӯшиш кунед.';
+          status.style.color = '#f87171';
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Фиристодан';
+        });
+    });
+  </script>
+
+</body>
+</html>
