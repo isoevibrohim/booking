@@ -32,43 +32,44 @@
       width: 100%;
       background: linear-gradient(135deg, #0c1222, #111827);
       color: white;
-      padding: 2.8rem 1.5rem;
+      padding: 2.5rem 1.2rem;
       text-align: center;
       border-bottom: 1px solid #1e293b;
     }
     header h1 {
       margin: 0;
-      font-size: 2.15rem;
+      font-size: 2rem;
       font-weight: 700;
       letter-spacing: -0.5px;
     }
     header p {
-      margin: 0.6rem 0 0;
+      margin: 0.5rem 0 0;
       color: #94a3b8;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
     }
     .container {
       max-width: 720px;
       margin: 0 auto;
-      padding: 2.5rem 1.4rem 2rem;
+      padding: 2rem 1.2rem 2rem;
       flex: 1;
+      width: 100%;
     }
     .social-buttons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 0.85rem;
-      margin-bottom: 2.8rem;
+      gap: 0.7rem;
+      margin-bottom: 2.2rem;
     }
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.75rem 1.4rem;
+      padding: 0.7rem 1.25rem;
       border-radius: 12px;
       color: white;
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 500;
       transition: all 0.25s ease;
       border: 1px solid transparent;
@@ -89,31 +90,31 @@
 
     .section {
       background: #151b28;
-      border-radius: 18px;
-      padding: 1.9rem 1.7rem;
-      margin-bottom: 1.8rem;
+      border-radius: 16px;
+      padding: 1.6rem 1.4rem;
+      margin-bottom: 1.5rem;
       border: 1px solid #1e293b;
     }
     .section h2 {
-      margin: 0 0 1.3rem;
+      margin: 0 0 1.1rem;
       color: #93c5fd;
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       display: flex;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.5rem;
     }
 
     .skills-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.7rem;
+      gap: 0.6rem;
     }
     .skill {
       background: #1e293b;
       color: #93c5fd;
-      padding: 0.45rem 1rem;
+      padding: 0.4rem 0.9rem;
       border-radius: 50px;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 500;
       border: 1px solid #334155;
     }
@@ -121,8 +122,8 @@
     .project {
       border: 1px solid #1e293b;
       border-radius: 14px;
-      padding: 1.25rem 1.3rem;
-      margin-bottom: 1rem;
+      padding: 1.15rem 1.2rem;
+      margin-bottom: 0.9rem;
       background: #0f1117;
       transition: all 0.25s ease;
     }
@@ -132,35 +133,35 @@
       background: #1a2030;
     }
     .project h3 {
-      margin: 0 0 0.4rem;
-      font-size: 1.15rem;
+      margin: 0 0 0.35rem;
+      font-size: 1.1rem;
       color: #e2e8f0;
     }
     .project p {
       margin: 0;
       color: #94a3b8;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       line-height: 1.55;
     }
     .project a {
       display: inline-block;
-      margin-top: 0.7rem;
+      margin-top: 0.65rem;
       color: #60a5fa;
       font-weight: 500;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
     .project a:hover { color: #93c5fd; }
 
     .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 0.9rem;
     }
     .contact-form input,
     .contact-form textarea {
       width: 100%;
-      padding: 0.85rem 1.1rem;
+      padding: 0.8rem 1rem;
       border: 1.5px solid #1e293b;
       border-radius: 12px;
       font-size: 1rem;
@@ -179,14 +180,14 @@
       border-color: #3b82f6;
     }
     .contact-form textarea {
-      min-height: 130px;
+      min-height: 120px;
       resize: vertical;
     }
     .contact-form button {
       background: #1e40af;
       color: white;
       border: none;
-      padding: 0.9rem;
+      padding: 0.85rem;
       border-radius: 12px;
       font-size: 1.05rem;
       font-weight: 600;
@@ -203,7 +204,7 @@
       transform: none;
     }
     #form-status {
-      margin-top: 0.8rem;
+      margin-top: 0.7rem;
       font-size: 0.95rem;
       text-align: center;
       min-height: 24px;
@@ -213,9 +214,9 @@
       background: #0c1222;
       border-top: 1px solid #1e293b;
       text-align: center;
-      padding: 1.6rem 1rem;
+      padding: 1.4rem 1rem;
       color: #64748b;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
     footer a {
       color: #60a5fa;
@@ -225,14 +226,57 @@
       color: #93c5fd;
     }
 
-    @media (max-width: 520px) {
-      header h1 { font-size: 1.7rem; }
+    /* Mobile improvements */
+    @media (max-width: 600px) {
+      header {
+        padding: 2rem 1rem;
+      }
+      header h1 {
+        font-size: 1.6rem;
+      }
+      header p {
+        font-size: 0.98rem;
+      }
+      .container {
+        padding: 1.5rem 1rem 1.8rem;
+      }
+      .social-buttons {
+        gap: 0.6rem;
+        margin-bottom: 1.8rem;
+      }
       .btn {
         width: 100%;
-        max-width: 280px;
+        max-width: 300px;
         justify-content: center;
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
       }
-      .section { padding: 1.5rem 1.25rem; }
+      .section {
+        padding: 1.3rem 1.1rem;
+        border-radius: 14px;
+      }
+      .section h2 {
+        font-size: 1.15rem;
+      }
+      .project {
+        padding: 1rem 1rem;
+      }
+      .project h3 {
+        font-size: 1.05rem;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        font-size: 16px; /* prevents zoom on iOS */
+      }
+    }
+
+    @media (max-width: 380px) {
+      header h1 {
+        font-size: 1.4rem;
+      }
+      .btn {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -284,10 +328,10 @@
       <h2><i class="fas fa-folder-open"></i> Projects</h2>
 
       <div class="project">
-        <h3>somon.ai</h3>
+        <h3>TajikGPT</h3>
         <p>Ҳуши маснӯии тоҷикӣ — лоиҳаи AI барои ҷавоб додан ба саволҳо бо забони тоҷикӣ.</p>
-        <a href="https://huggingface.co/Isoevibrohim" target="_blank">
-          <i class="fas fa-external-link-alt"></i> Дидани лоиҳа (Hugging Face)
+        <a href="https://github.com/isoevibrohim/Tajikgpt" target="_blank">
+          <i class="fas fa-external-link-alt"></i> Дидани лоиҳа (GitHub)
         </a>
       </div>
 
@@ -304,6 +348,14 @@
         <p>Вебсайти географияи Тоҷикистон бо маълумоти муфид ва интерфейси оддӣ.</p>
         <a href="https://geografia-19tf.onrender.com" target="_blank">
           <i class="fas fa-external-link-alt"></i> Дидани лоиҳа
+        </a>
+      </div>
+
+      <div class="project">
+        <h3>Auto Japan Zapchast</h3>
+        <p>Лоиҳаи қисмҳои эҳтиётии мошинҳои ҷопонӣ — вебсайт барои ҷустуҷӯ ва фармоиши запчастҳо.</p>
+        <a href="https://github.com/isoevibrohim/Auto_japan_zapchast" target="_blank">
+          <i class="fas fa-external-link-alt"></i> Дидани лоиҳа (GitHub)
         </a>
       </div>
     </div>
